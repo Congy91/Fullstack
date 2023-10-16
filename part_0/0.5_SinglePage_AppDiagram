@@ -2,6 +2,7 @@ sequenceDiagram
     participant Browser
     participant Server
 
+    loop Redirect
     Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate Server
     Server-->>Browser: HTML document
@@ -22,12 +23,8 @@ sequenceDiagram
     Server-->>Browser: [{"content": "User Text","date": "2023-10-15T18:55:05.802Z"}, ...]
     deactivate Server
 
-    loop Update Browser
-    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    activate Server
-    Server-->>Browser: {"message":"note created"}
-    deactivate Server
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    Server-->>Browser: Redirect - Start Sequence Again
     end
 
-https://mermaid.ink/svg/pako:eNq9VFFv0zAQ_iuWn9ukSWnX5WEPwAAhJpDSvUDQdLMvjSGxje10m6r8952bUglVCFUC8mR_d_78fefL7bgwEnnBPf7oUQt8rWDjoKs0o8-CC0ooCzqwl848eHSngRLdNuJj5JA2vboa8YK9vV6zJgTrizT1oZcKfSJ80mDrlf6uklql-AidbRGsTb2FkQhEUFsIeOSP4LieEvvhnoK9W998YNKIvkMdxiyJJ4f_jrgOlKawP0_hq7Jkb1SL_1gcVS75dqa097CFUjhlw_9QKCFEiUafJ_LLrqIu1SG-Ly9YxW8JZmt8pO2k4sSKI57P8vk0m02zxTpbFYtFMVskq1n-ueLDhCVJ8vUP_lpjLLu1kfDXdj81_uljeY5zjQ932gS8O7u9yXuH3sMmeqx4JGHCIZ2UZOu3hiKMWkZnleYT4nDUvJJ-9F0MVjw02B3KJrGGvqViVnqgVOiDKZ-04EVwPU54vy_IYS7woobWH9FrqYJxR7A1IJG2Ox6ebJwqG-UDUdLr1WoT8d61BP8sXAwnGxWa_j4Rpku9kg1NlmZ7uUyX-XIF-RyXF3NYzOdS3GeXqzp_kdXyYpblwIdhwnF__804wvaTbHgG3-ajPw
-
+https://mermaid.ink/svg/pako:eNq9VEtv1DAQ_iuWz3mHbLc5VOJRQIgKRJYLBCHXniSGxDa2s221yn9n0qRIqOIQCfDJ_ub1zXhmTpRrAbSkDn6MoDi8kKy1bKgVwWOY9ZJLw5Qnz6y-cWAfCyqwxxlfJL3WhnwAIS1wv0CrZXhxsaiW5NXlgXTeG1fGsfOjkOAi7qIOeifVdxk1MoZbNpgemDGxM2xxxLiXR-bhV8gZXO4hel_jlOT14eotEZqPA6iVg4BHxn-H3MCkQrHbxvB5VZGXsod_TA4rF33bSO0NO7KKW2n8_2AomJ8parWN5OdTjY2r_Py_tCQ1_YgwOcAtPoOaoldY8CzJ8jBNwrQ4pPuyKMqkiPZJ9qmmU0CiKPqyOb_376otCSq4-aq0hz-m8jArJCSVx7FCnWUSydMWe2uxAyVqRQM6gMWGEzivp1lQU9_BsKYqoGFjjwWo1YSqbPS6ulOclt6OENDRzFVZx_t38FJIry0tG9Y7BHvNBODzRP2dmXdDK51Hj1jwRrYzPtoe4YcizOKolb4bryOuh9hJ0WEi3fF8F--y3Z5lOezOclbkueDX6fm-yZ6kjThL0ozRaQoo3Me_WhbR_T6afgJn6o6k
