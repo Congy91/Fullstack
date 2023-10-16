@@ -1,0 +1,33 @@
+sequenceDiagram
+    participant Browser
+    participant Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate Server
+    Server-->>Browser: HTML document
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate Server
+    Server-->>Browser: CSS File
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate Server
+    Server-->>Browser: JavaScript File
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>Browser: [{"content": "User Text","date": "2023-10-15T18:55:05.802Z"}, ...]
+    deactivate Server
+
+    loop Update Browser
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate Server
+    Server-->>Browser: {"message":"note created"}
+    deactivate Server
+    end
+
+
+https://mermaid.ink/svg/pako:eNq9VFFv0zAQ_iuWn9ukSWnX5WEPwAAhJpDSvUDQdLMvjSGxje10m6r8952bUglVCFUC8mR_d_78fefL7bgwEnnBPf7oUQt8rWDjoKs0o8-CC0ooCzqwl848eHSngRLdNuJj5JA2vboa8YK9vV6zJgTrizT1oZcKfSJ80mDrlf6uklql-AidbRGsTb2FkQhEUFsIeOSP4LieEvvhnoK9W998YNKIvkMdxiyJJ4f_jrgOlKawP0_hq7Jkb1SL_1gcVS75dqa097CFUjhlw_9QKCFEiUafJ_LLrqIu1SG-Ly9YxW8JZmt8pO2k4sSKI57P8vk0m02zxTpbFYtFMVskq1n-ueLDhCVJ8vUP_lpjLLu1kfDXdj81_uljeY5zjQ932gS8O7u9yXuH3sMmeqx4JGHCIZ2UZOu3hiKMWkZnleYT4nDUvJJ-9F0MVjw02B3KJrGGvqViVnqgVOiDKZ-04EVwPU54vy_IYS7woobWH9FrqYJxR7A1IJG2Ox6ebJwqG-UDUdLr1WoT8d61BP8sXAwnGxWa_j4Rpku9kg1NlmZ7uUyX-XIF-RyXF3NYzOdS3GeXqzp_kdXyYpblwIdhwnF__804wvaTbHgG3-ajPw
