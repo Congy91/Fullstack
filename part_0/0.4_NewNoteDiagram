@@ -2,7 +2,8 @@ sequenceDiagram
     participant Browser
     participant Server
 
-    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    loop Redirect
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
     activate Server
     Server-->>Browser: HTML document
     deactivate Server
@@ -12,7 +13,7 @@ sequenceDiagram
     Server-->>Browser: CSS File
     deactivate Server
 
-    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
     activate Server
     Server-->>Browser: JavaScript File
     deactivate Server
@@ -21,3 +22,9 @@ sequenceDiagram
     activate Server
     Server-->>Browser: [{"content": "User Text","date": "2023-10-15T18:55:05.802Z"}, ...]
     deactivate Server
+
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    Server-->>Browser: Redirect - Start Sequence Again
+    end
+
+[![](https://mermaid.ink/img/pako:eNq9VEtv1DAQ_iuWz3lsErLd5lCJRwEhKhBZLjQIufYkMSS2sZ1tq1X-O5Mm3UvVQyTAJ_ub1zfjmTlSrgXQgjr4PYDi8EayxrK-UgSPYdZLLg1Tnryy-taBfSoowR4mfJZ0WhvyBYS0wP0MLZbhxcWsWpB3l3vSem9cEcfOD0KCi7iLWuicVL9kVMsY7lhvOmDGxM6w2RHjXh6Yh1PICZzvIXpf4hTk_f7qIxGaDz2ohYOAJ8Z_h1zPpEKxW8fwdVmSt7KDf0wOKxf9XEntAzuwkltp_P9gKJifKGq1juT1scLGVX76X1qQin5FmOzhDp9BRdErzHi6SbMw2YRJvk92RZ4XmzzabdJvFR0DEkXR99X5ff5UrklQwe0PpT08m8rjrJCQlB7HCnXmSSQvG-yt2Q6UqBQNaA8WG07gvB4nQUV9C_2SqoCaDR0WoFIjqrLB6_JecVp4O0BABzNVZRlvWtSscyf0Ukiv7QnsNBOAzyP192ZaDo10Hl1ixWvZTPhgO4QfqzCJo0b6driJuO5jJ0WLmbSH8228Tbc7lmawPctYnmWC3yTnuzp9kdTibJOkjI5jQOEh_tW8iR4W0vgH8Q2O7w?type=png)](https://mermaid.live/edit#pako:eNq9VEtv1DAQ_iuWz3lsErLd5lCJRwEhKhBZLjQIufYkMSS2sZ1tq1X-O5Mm3UvVQyTAJ_ub1zfjmTlSrgXQgjr4PYDi8EayxrK-UgSPYdZLLg1Tnryy-taBfSoowR4mfJZ0WhvyBYS0wP0MLZbhxcWsWpB3l3vSem9cEcfOD0KCi7iLWuicVL9kVMsY7lhvOmDGxM6w2RHjXh6Yh1PICZzvIXpf4hTk_f7qIxGaDz2ohYOAJ8Z_h1zPpEKxW8fwdVmSt7KDf0wOKxf9XEntAzuwkltp_P9gKJifKGq1juT1scLGVX76X1qQin5FmOzhDp9BRdErzHi6SbMw2YRJvk92RZ4XmzzabdJvFR0DEkXR99X5ff5UrklQwe0PpT08m8rjrJCQlB7HCnXmSSQvG-yt2Q6UqBQNaA8WG07gvB4nQUV9C_2SqoCaDR0WoFIjqrLB6_JecVp4O0BABzNVZRlvWtSscyf0Ukiv7QnsNBOAzyP192ZaDo10Hl1ixWvZTPhgO4QfqzCJo0b6driJuO5jJ0WLmbSH8228Tbc7lmawPctYnmWC3yTnuzp9kdTibJOkjI5jQOEh_tW8iR4W0vgH8Q2O7w)
