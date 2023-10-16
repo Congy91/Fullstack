@@ -1,0 +1,38 @@
+const Header = (props) => {
+  return (
+    <div>
+      <h1>{props.course}</h1>
+    </div>
+  )
+}
+
+const Content = (props) => {
+  return (
+    <div>
+      <h4>{props.title}</h4>
+      <p>Exercises: {props.exNum}</p>
+    </div>
+  )
+}
+
+const Total = () => {
+  const total = 10 + 7 + 14;
+  return(
+    <p>Number of exercises: {total}</p>
+  )
+}
+
+const App = () => {
+
+  return (
+    <div>
+        <Header course='Half Stack application development'/>
+        <Content title='Fundamentals of React' exNum={10}/>
+        <Content title='Using props to pass data' exNum={7}/>
+        <Content title='State of a component' exNum={14}/>
+        <Total />     
+    </div>
+  )
+}
+
+export default App
